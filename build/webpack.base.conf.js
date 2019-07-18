@@ -7,7 +7,10 @@ const path = require('path'),
   // ManifestPlugin = require('webpack-manifest-plugin'),
   // SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
+const envConfig = require('./env.config')
+
 const _PROD_ = process.env.NODE_ENV === 'production';
+const _BUILD_ENV_ = process.env.BUILD_ENV || 'development'
 
 const resolve = (dir) => {
   return path.resolve(process.cwd(), dir)
@@ -145,14 +148,16 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.DefinePlugin({
+      $HOST: JSON.stringify(envConfig[_BUILD_ENV_].HOST)
+    }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: "static/css/[name].[contenthash].css",
     }),
-    // new webpack.ProvidePlugin({
-    //   $http: [resolve('src/utils/http.ts'), 'default'],
-    //   $msg: [resolve('node_modules/antd/es/message/index.js'), 'default']
-    // }),
+    new webpack.ProvidePlugin({
+      $http: [resolve('src/utils/http.ts'), 'default']
+    }),
     // new CopyWebpackPlugin([{
     //   from: resolve('statics'),
     //   ignore: ['.*']

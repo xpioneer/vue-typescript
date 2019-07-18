@@ -8,12 +8,10 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { } from 'vue-router';
 
 @Component
 export default class Home extends Vue {
   greeting: string = 'hello, world!'
-
 
   goList() {
     // this.$props

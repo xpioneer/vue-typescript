@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "OCard H5 Project with vue",
   "main": "index.js",
-  "author": "keefe <xiaobin.liao@atomefin.com.cn>",
+  "author": "xpioneer <1286283280@qq.com>",
   "license": "MIT",
   "scripts": {
     "start": "npm run dev",
     "dev": "webpack-dev-server --config build/webpack.dev.conf.js",
-    "build:test": "BUILD_ENV=testing webpack --config build/build.js",
-    "build:pre": "BUILD_ENV=preview webpack --config build/build.js",
-    "build": "webpack --config build/build.js"
+    "build:test": "BUILD_ENV=testing node build/build.js",
+    "build:pre": "BUILD_ENV=preview node build/build.js",
+    "build": "BUILD_ENV=production node build/build.js"
   },
   "dependencies": {
     "axios": "^0.19.0",

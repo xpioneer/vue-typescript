@@ -19,7 +19,7 @@ export default class Demos extends Vue{
   delCar(index: number) { }
 
   mounted(){
-    console.log('car component...')
+    // console.log('car component...')
   }
 }
 </script>

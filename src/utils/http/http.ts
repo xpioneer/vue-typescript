@@ -3,7 +3,7 @@ import { storage } from '@/utils/tools'
 import { AUTH_TOKEN } from '@/constants/index'
 
 const $http = axios.create({
-  baseURL: '',
+  baseURL: $HOST,
   responseType: 'json',
   transformResponse: [function (data) {
     return data
